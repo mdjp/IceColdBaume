@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Beam.tscn" type="PackedScene" id=3]
 
 [node name="sandbox" type="Node2D"]
 
@@ -8,6 +10,9 @@
 
 [node name="Holes" type="Node" parent="."]
 
-[node name="Ball" type="Node" parent="."]
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 387.707, 564.759 )
 
-[node name="Beam" type="Node" parent="."]
+[node name="Beam" parent="." instance=ExtResource( 3 )]
+position = Vector2( 298.629, 604.986 )
+
