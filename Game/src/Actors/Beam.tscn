@@ -9,6 +9,9 @@ mode = 2
 mass = 1000.0
 gravity_scale = 0.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 engine_thrust = 50
 spin_thrust = 1
 

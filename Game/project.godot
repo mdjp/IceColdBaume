@@ -19,6 +19,10 @@ config/name="Game"
 run/main_scene="res://src/Levels/sandbox.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://src/Autoload/PlayerData.gd"
+
 [display]
 
 window/size/width=600
