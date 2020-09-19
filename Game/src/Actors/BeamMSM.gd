@@ -1,6 +1,8 @@
 extends StateMachine
 
+var reset_position_centre = Vector2()
 var old_rotation
+
 
 func _ready() -> void:
 	add_state("IDLE") # Refers to the state where the player can move the beam using inputs
@@ -62,11 +64,11 @@ func is_in_reset():
 
 func leave_reset_state():
 	var basicState = parent.get_node("BasicStateMachine")
-	basicState.current_state = basicState.states.IDLE
+	basicState.current_state = basicState.states.WAITING
 
 
 func continue_vertically():
-	var direction = round(parent.get_node("BasicStateMachine").reset_position_centre.y - parent.global_position.y)
+	var direction = round(parent.get_node("ResetStateMachine").reset_position_centre.y - parent.global_position.y)
 	return direction != 0
 
 

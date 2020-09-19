@@ -14,32 +14,18 @@ const angle = PI/100
 func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	beamsize = $Sprite.texture.get_size().x * $Sprite.scale.x * 5.6
-	$BasicStateMachine.reset_position_centre = get_parent().get_node("BeamStartPosition").global_position
-	$BasicStateMachine.reset_position_right = $BasicStateMachine.reset_position_centre + $Sprite/RightSide.position
+	$ResetStateMachine.reset_position_centre = get_parent().get_node("BeamStartPosition").global_position
 	PlayerData.connect("reset_beam", self, "_reset")
 
 
 func _process(delta):
-	if $BasicStateMachine.current_state == $BasicStateMachine.states.IDLE:
-		get_input()
-	
-	if $BasicStateMachine.current_state == $BasicStateMachine.states.RESETTING:
-		get_movement()
-	
 	if $BasicStateMachine.current_state != null:
 		$State.text = $BasicStateMachine.states.keys()[$BasicStateMachine.current_state]
 
 
 func _integrate_forces(state):
-	
 	if $BasicStateMachine.current_state == $BasicStateMachine.states.PAUSED:
 		return
-	
-	if $BasicStateMachine.current_state == $BasicStateMachine.states.RESETTING:
-		pass
-	
-	if $BasicStateMachine.current_state == $BasicStateMachine.states.IDLE:
-		pass
 	
 	move_beam()
 
@@ -76,15 +62,15 @@ func get_input():
 
 
 func get_movement():
-	if $MovementState.current_state == $MovementState.states.MOVE_VERTICALLY:
-		var direction = round($BasicStateMachine.reset_position_centre.y - self.global_position.y)
+	if $ResetStateMachine.current_state == $ResetStateMachine.states.MOVE_VERTICALLY:
+		var direction = round($ResetStateMachine.reset_position_centre.y - self.global_position.y)
 		if direction != 0:
 			right_rotation_dir = sign(direction)
 			left_rotation_dir = sign(direction)
 		
 #		print("direction:" + str(direction))
 	
-	if $MovementState.current_state == $MovementState.states.ROTATE and $MovementState.continue_rotating():
+	if $ResetStateMachine.current_state == $ResetStateMachine.states.ROTATE and $ResetStateMachine.continue_rotating():
 		var rotation = round($Sprite/LeftSide.global_position.y - $Sprite/RightSide.global_position.y)
 		
 		right_rotation_dir = 0 if rotation == 0 else sign(rotation)

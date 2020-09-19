@@ -452,6 +452,6 @@ margin_bottom = 14.0
 theme = SubResource( 1 )
 text = "?"
 
-[node name="MovementState" type="Node" parent="."]
+[node name="ResetStateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
 
