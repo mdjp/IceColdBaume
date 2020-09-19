@@ -8,7 +8,9 @@ var right_rotation_dir = 0
 var left_rotation_dir = 0
 var screensize
 var beamsize
-const angle = PI/40
+const angle = PI/100
+var reset_state = false
+var reset_position = Vector2()
 
 
 func _ready():
@@ -21,6 +23,10 @@ func _process(delta):
 
 
 func _integrate_forces(state):
+	if reset_state:
+		state.transform = Transform2D(0.0, reset_position)
+		reset_state = false
+	
 	linear_velocity.x = 0
 	
 	if right_rotation_dir == left_rotation_dir:

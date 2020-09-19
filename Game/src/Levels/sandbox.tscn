@@ -1,27 +1,30 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Actors/Holes/HoleTypeOne.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Actors/Holes/HoleTypeGoal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Actors/Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Actors/Beam.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Holes/HoleTypeOne.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Holes/HoleTypeGoal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Screens/PlayerStats.tscn" type="PackedScene" id=5]
 
 [node name="sandbox" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="Background" parent="." instance=ExtResource( 1 )]
+[node name="Background" parent="." instance=ExtResource( 2 )]
 
 [node name="Holes" type="Node" parent="."]
 
-[node name="HoleTypeOne" parent="Holes" instance=ExtResource( 2 )]
+[node name="HoleTypeOne" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 486.221, 445.591 )
 
-[node name="Hole 1" parent="Holes" instance=ExtResource( 3 )]
+[node name="Hole 1" parent="Holes" instance=ExtResource( 4 )]
 position = Vector2( 298.02, 490.081 )
 hole_number = 1
 
-[node name="Ball" parent="." instance=ExtResource( 4 )]
-position = Vector2( 387.707, 564.759 )
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
-[node name="Beam" parent="." instance=ExtResource( 5 )]
-position = Vector2( 298.629, 604.986 )
+[node name="BeamStartPosition" type="Position2D" parent="."]
+position = Vector2( 298.62, 501.682 )
+
+[node name="BallStartPosition" type="Position2D" parent="."]
+position = Vector2( 217.282, 494.287 )
 

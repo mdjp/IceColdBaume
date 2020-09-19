@@ -1,8 +1,10 @@
 extends RigidBody2D
 
+
 func _ready():
 	# PlayerData.connect("ball_went_through_hole", self, "_ball_disappear")
 	pass
+
 
 func disappear(achieved_goal : bool) -> void:
 	if achieved_goal:
@@ -12,5 +14,5 @@ func disappear(achieved_goal : bool) -> void:
 		PlayerData.number_of_balls -= 1
 		pass
 	
-	emit_signal("ball_went_through_hole")
+	PlayerData.reset_game()
 	queue_free()
