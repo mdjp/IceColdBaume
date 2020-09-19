@@ -19,20 +19,20 @@ func _get_transition(delta):
 	match current_state:
 		states.IDLE:
 			if is_in_reset():
-				return states.MOVE_VERTICALLY
+				return states.ROTATE
 		states.MOVE_VERTICALLY:
 			if not is_in_reset():
 				return states.IDLE
 			
 			if not continue_vertically():
-				return states.ROTATE
+				leave_reset_state()
+				return states.IDLE
 		states.ROTATE:
 			if not is_in_reset():
 				return states.IDLE
 			
 			if not continue_rotating():
-				leave_reset_state()
-				return states.IDLE
+				return states.MOVE_VERTICALLY
 
 
 func _enter_state(new_state, old_state):
@@ -52,7 +52,7 @@ func _exit_state(old_state, new_state):
 		states.MOVE_VERTICALLY:
 			pass
 		states.ROTATE:
-			pass
+			old_rotation = null
 
 
 func is_in_reset():
@@ -71,7 +71,7 @@ func continue_vertically():
 
 
 func continue_rotating():
-	var rotation = round(parent.get_node("BasicStateMachine").reset_position_right.y - parent.get_node("Sprite/RightSide").global_position.y)
+	var rotation = round(parent.get_node("Sprite/LeftSide").global_position.y - parent.get_node("Sprite/RightSide").global_position.y)
 	if old_rotation == null or sign(old_rotation) == sign(rotation):
 		old_rotation = rotation
 		return rotation != 0

@@ -82,15 +82,15 @@ func get_movement():
 			right_rotation_dir = sign(direction)
 			left_rotation_dir = sign(direction)
 		
-		print("direction:" + str(direction))
+#		print("direction:" + str(direction))
 	
-	if $MovementState.current_state == $MovementState.states.ROTATE:
-		var rotation = round($BasicStateMachine.reset_position_right.y - $Sprite/RightSide.global_position.y)
+	if $MovementState.current_state == $MovementState.states.ROTATE and $MovementState.continue_rotating():
+		var rotation = round($Sprite/LeftSide.global_position.y - $Sprite/RightSide.global_position.y)
 		
 		right_rotation_dir = 0 if rotation == 0 else sign(rotation)
 		left_rotation_dir = 0
 		
-		print("rotation:" + str(rotation))
+#		print("rotation:" + str(rotation))
 
 
 func _can_rotate(direction):
