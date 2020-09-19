@@ -1,6 +1,7 @@
 extends StateMachine
 
-var reset_position = Vector2()
+var reset_position_centre = Vector2()
+var reset_position_right = Vector2()
 
 
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _get_transition(delta):
 		states.IDLE:
 			pass
 		states.RESETTING:
-			if round(parent.global_position.y) == reset_position.y:
+			if round(parent.global_position.y) == reset_position_centre.y and round(parent.get_node("Sprite/RightSide").global_position.y) == reset_position_right.y:
 				return states.IDLE
 		states.PAUSED:
 			pass

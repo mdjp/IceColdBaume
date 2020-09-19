@@ -14,7 +14,8 @@ const angle = PI/100
 func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	beamsize = $Sprite.texture.get_size().x * $Sprite.scale.x * 5.6
-	$BasicStateMachine.reset_position = get_parent().get_node("BeamStartPosition").global_position
+	$BasicStateMachine.reset_position_centre = get_parent().get_node("BeamStartPosition").global_position
+	$BasicStateMachine.reset_position_right = $BasicStateMachine.reset_position_centre + $Sprite/RightSide.position
 	PlayerData.connect("reset_beam", self, "_reset")
 
 
@@ -75,15 +76,22 @@ func get_input():
 
 
 func get_movement():
-	# Compare reset position to global position
-	var direction = $BasicStateMachine.reset_position.y - round(self.global_position.y)
+	if $MovementState.current_state == $MovementState.states.MOVE_VERTICALLY:
+		var direction = round($BasicStateMachine.reset_position_centre.y - self.global_position.y)
+		if direction != 0:
+			right_rotation_dir = sign(direction)
+			left_rotation_dir = sign(direction)
+		
+		print("direction:" + str(direction))
 	
-	if direction == 0:
-		right_rotation_dir = 0
+	if $MovementState.current_state == $MovementState.states.ROTATE:
+		var rotation = round($BasicStateMachine.reset_position_right.y - $Sprite/RightSide.global_position.y)
+		
+		right_rotation_dir = 0 if rotation == 0 else sign(rotation)
 		left_rotation_dir = 0
-	else:
-		right_rotation_dir = sign(direction)
-		left_rotation_dir = sign(direction)
+		
+		print("rotation:" + str(rotation))
+
 
 func _can_rotate(direction):
 	# need to be position relative to screen
