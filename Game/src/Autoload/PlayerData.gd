@@ -2,7 +2,8 @@ extends Node
 
 signal score_updated
 signal goal_updated
-signal reset_game
+signal reset_beam
+signal add_ball
 
 var goal_hole: = 1 setget set_goal
 var max_holes: = 10
@@ -32,8 +33,8 @@ func set_balls(value: int) -> void:
 
 func reset_game():
 	if number_of_balls > 0:
-		emit_signal("reset_game")
+		emit_signal("reset_beam")
 	else:
 		# reset()
-		# emit_signal("reset_game")
+		# emit_signal("reset_beam")
 		print("Game ended")

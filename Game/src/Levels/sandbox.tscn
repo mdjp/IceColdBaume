@@ -23,7 +23,7 @@ hole_number = 1
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
 [node name="BeamStartPosition" type="Position2D" parent="."]
-position = Vector2( 298.62, 501.682 )
+position = Vector2( 298.62, 502 )
 
 [node name="BallStartPosition" type="Position2D" parent="."]
 position = Vector2( 217.282, 494.287 )

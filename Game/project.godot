@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Hole",
 "language": "GDScript",
 "path": "res://src/Actors/Holes/Hole.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/Actors/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Hole": ""
+"Hole": "",
+"StateMachine": ""
 }
 
 [application]
