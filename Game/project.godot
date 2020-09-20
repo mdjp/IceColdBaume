@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Hole",
 "language": "GDScript",
 "path": "res://src/Actors/Holes/Hole.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/Actors/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Hole": ""
+"Hole": "",
+"StateMachine": ""
 }
 
 [application]
@@ -53,6 +59,11 @@ right_side_up={
 right_side_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+reset_game={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 
