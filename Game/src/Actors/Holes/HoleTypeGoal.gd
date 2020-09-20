@@ -3,6 +3,7 @@ extends Hole
 
 func _ready():
 	PlayerData.connect("goal_updated", self, "_update_status")
+	$Number.text = str(hole_number)
 
 
 func update_status(goal: int):
