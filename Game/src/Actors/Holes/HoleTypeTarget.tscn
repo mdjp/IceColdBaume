@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/Actors/Holes/HoleTypeGoal.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Holes/HoleTypeTarget.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Holes/Circle End - Highlight.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Holes/Circle End - Hole.png" type="Texture" id=3]
 [ext_resource path="res://Assets/HoleFont.tres" type="DynamicFont" id=4]
@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.64958
 
-[node name="HoleTypeGoal" type="Area2D" groups=[
+[node name="HoleTypeTarget" type="Area2D" groups=[
 "Goal",
 ]]
 z_index = 1
