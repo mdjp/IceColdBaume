@@ -1,9 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Actors/Holes/HoleTypeTarget.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Holes/Circle End - Highlight.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Holes/Circle End - Hole.png" type="Texture" id=3]
-[ext_resource path="res://Assets/HoleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Holes/Circle End - Hole Active.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Holes/Circle End - Hole.png" type="Texture" id=4]
+[ext_resource path="res://Assets/HoleFont.tres" type="DynamicFont" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "target",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 9.64958
@@ -20,8 +34,9 @@ __meta__ = {
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.433037, 0 )
@@ -32,7 +47,7 @@ margin_left = -4.7949
 margin_top = -22.1795
 margin_right = 5.2051
 margin_bottom = -8.17949
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "?"
 align = 1

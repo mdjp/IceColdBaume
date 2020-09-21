@@ -11,3 +11,12 @@ func update_status(is_target: bool):
 	# Need to look at the groups to determine if it is the group of "target holes"
 	if self.is_in_group("Goal"):
 		self.is_target = is_target
+		
+		_update_animation()
+
+
+func _update_animation():
+	if is_target:
+		$AnimatedSprite.play("target")
+	else:
+		$AnimatedSprite.play("idle")
