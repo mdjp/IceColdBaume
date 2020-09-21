@@ -3,13 +3,17 @@ extends Node2D
 const BALL = preload("res://src/Actors/Ball.tscn")
 const BEAM = preload("res://src/Actors/Beam.tscn")
 
+const TARGET_HOLE = preload("res://src/Actors/Holes/HoleTypeTarget.tscn")
+
 var beam = null
 var ball = null
 
 func _ready():
 	PlayerData.connect("add_ball", self, "_reset")
-	get_node("Holes/Hole " + str(PlayerData.goal_hole)).update_status(PlayerData.goal_hole)
+	PlayerData.connect("target_updated", self, "_change_target")
 	
+	_add_target_holes()
+	_set_hole_target_status(PlayerData.target_hole, true)
 	_add_ball()
 	
 	beam = BEAM.instance()
@@ -33,3 +37,23 @@ func _process(delta):
 	
 	if Input.is_action_just_released("reset_game"):
 		ball.disappear(false)
+
+
+func _change_target(old_target, new_target):
+	_set_hole_target_status(old_target, false)
+	_set_hole_target_status(new_target, true)
+
+
+func _add_target_holes():
+	var parent_node = get_node("Holes/Targets")
+	if parent_node != null:
+		for child in parent_node.get_children():
+			var hole = TARGET_HOLE.instance()
+			hole.hole_number = int(child.name)
+			child.add_child(hole)
+
+
+func _set_hole_target_status(number, target_status):
+	var hole = get_node("Holes/Targets/" + str(number) + "/Hole")
+	if hole != null:
+		hole.update_status(target_status)
