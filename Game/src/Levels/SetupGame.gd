@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 const BALL = preload("res://src/Actors/Ball.tscn")
