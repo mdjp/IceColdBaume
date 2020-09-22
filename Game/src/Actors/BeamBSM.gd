@@ -45,6 +45,7 @@ func _exit_state(old_state, new_state):
 		states.WAITING:
 			pass
 		states.RESETTING:
-			PlayerData.emit_signal("add_ball")
+			if PlayerData.number_of_balls > 0:
+				PlayerData.emit_signal("add_ball")
 		states.PAUSED:
 			pass

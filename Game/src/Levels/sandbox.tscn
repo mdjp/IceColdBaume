@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Screens/PlayerStats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/PlayerStats.tscn" type="PackedScene" id=4]
 
 [node name="sandbox" type="Node2D"]
 script = ExtResource( 1 )
+next_scene = ExtResource( 2 )
 
-[node name="Background" parent="." instance=ExtResource( 2 )]
+[node name="Background" parent="." instance=ExtResource( 3 )]
 
 [node name="Holes" type="Node" parent="."]
 
@@ -30,7 +32,7 @@ position = Vector2( 102.998, 406.085 )
 [node name="Position2D2" type="Position2D" parent="Holes/TypeOne"]
 position = Vector2( 301.011, 405.129 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
 
 [node name="BeamStartPosition" type="Position2D" parent="."]
 position = Vector2( 298.62, 502 )
