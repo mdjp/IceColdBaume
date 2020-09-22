@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 const BALL = preload("res://src/Actors/Ball.tscn")
@@ -9,9 +10,13 @@ const TYPE_ONE = preload("res://src/Actors/Holes/HoleTypeOne.tscn")
 var beam = null
 var ball = null
 
+export var next_scene: PackedScene
+
+
 func _ready():
 	PlayerData.connect("add_ball", self, "_reset")
 	PlayerData.connect("target_updated", self, "_change_target")
+	PlayerData.connect("end_game", self, "_end_game")
 	
 	_add_target_holes()
 	_set_hole_target_status(PlayerData.target_hole, true)
@@ -67,3 +72,11 @@ func _add_other_holes(collection_name, preloaded_scene):
 		for child in parent_node.get_children():
 			var hole = preloaded_scene.instance()
 			child.add_child(hole)
+
+
+func _get_configuration_warning() -> String:
+	return "The next scene property can't be empty" if not next_scene else ""
+
+
+func _end_game():
+	get_tree().change_scene_to(next_scene)

@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
+[ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/PlayerStats.tscn" type="PackedScene" id=4]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource( 1 )
+next_scene = ExtResource( 2 )
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="Holes" type="Node" parent="."]
+
+[node name="Targets" type="Node" parent="Holes"]
+editor/display_folded = true
+
+[node name="10" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 258.734, 91.8564 )
+
+[node name="9" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 377.84, 129.061 )
+
+[node name="8" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 178.796, 179.867 )
+
+[node name="7" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 308.74, 221.924 )
+
+[node name="6" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 425.883, 260.025 )
+
+[node name="5" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 242.785, 328.934 )
+
+[node name="4" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 364.72, 397.849 )
+
+[node name="3" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 164.892, 436.779 )
+
+[node name="2" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 428.039, 473.76 )
+
+[node name="1" type="Position2D" parent="Holes/Targets"]
+position = Vector2( 297.76, 489.87 )
+
+[node name="TypeOne" type="Node" parent="Holes"]
+
+[node name="Position2D" type="Position2D" parent="Holes/TypeOne"]
+position = Vector2( 102.998, 406.085 )
+
+[node name="Position2D2" type="Position2D" parent="Holes/TypeOne"]
+position = Vector2( 301.011, 405.129 )
+
+[node name="TypeTwo" type="Node" parent="Holes"]
+editor/display_folded = true
+
+[node name="Position2D" type="Position2D" parent="Holes/TypeTwo"]
+
+[node name="Position2D2" type="Position2D" parent="Holes/TypeTwo"]
+
+[node name="TypeThree" type="Node" parent="Holes"]
+editor/display_folded = true
+
+[node name="Position2D" type="Position2D" parent="Holes/TypeThree"]
+
+[node name="Position2D2" type="Position2D" parent="Holes/TypeThree"]
+
+[node name="TypeFour" type="Node" parent="Holes"]
+editor/display_folded = true
+
+[node name="Position2D" type="Position2D" parent="Holes/TypeFour"]
+
+[node name="Position2D2" type="Position2D" parent="Holes/TypeFour"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
+
+[node name="BeamStartPosition" type="Position2D" parent="."]
+position = Vector2( 298.62, 502 )
+
+[node name="BallStartPosition" type="Position2D" parent="."]
+position = Vector2( 217.282, 494.287 )
+
