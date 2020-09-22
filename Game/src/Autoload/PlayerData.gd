@@ -4,7 +4,9 @@ signal score_updated
 signal target_updated
 signal reset_beam
 signal add_ball
+signal end_game
 
+var score: = 0
 var target_hole: = 1 setget set_target
 var max_holes: = 10
 var number_of_balls: = 3 setget set_balls
@@ -32,9 +34,7 @@ func set_balls(value: int) -> void:
 
 
 func reset_game():
-	if number_of_balls > 0:
-		emit_signal("reset_beam")
-	else:
-		# reset()
-		# emit_signal("reset_beam")
+	emit_signal("reset_beam") # Once the beam is reset it checks whether a new ball needs to be added
+	if number_of_balls == 0:
 		print("Game ended")
+		emit_signal("end_game")
