@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 
 func _ready():
@@ -7,8 +7,9 @@ func _ready():
 
 
 func _process(delta):
-	$Background/MarginContainer/VBoxContainer/Score.text = "Score: " + str(PlayerData.score)
-	$Background/MarginContainer/VBoxContainer/Bonus.text = "Bonus: " + str(PlayerData.bonus)
+	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Balls.text = str(PlayerData.number_of_balls)
+	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Bonus.text = str(PlayerData.bonus)
+	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5/Score.text = str(PlayerData.score)
 
 
 func _on_timeout():

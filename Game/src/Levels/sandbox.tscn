@@ -42,6 +42,7 @@ position = Vector2( 298.62, 502 )
 position = Vector2( 217.282, 494.287 )
 
 [node name="ScoreScreen" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3.68329, 540.205 )
 
 [connection signal="area_entered" from="Holes/Targets/3/Hole" to="Holes/Targets/3/Hole" method="_on_ball_entered"]
 [connection signal="area_entered" from="Holes/Targets/2/Hole" to="Holes/Targets/2/Hole" method="_on_ball_entered"]
