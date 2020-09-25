@@ -26,6 +26,8 @@ func _ready():
 	beam = BEAM.instance()
 	self.add_child(beam)
 	beam.global_position = $BeamStartPosition.global_position
+	
+	PlayerData.game_started()
 
 
 func _reset():

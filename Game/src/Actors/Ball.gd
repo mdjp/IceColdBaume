@@ -8,6 +8,7 @@ func _ready():
 
 func disappear(achieved_goal : bool) -> void:
 	if achieved_goal:
+		PlayerData.score += PlayerData.bonus
 		PlayerData.target_hole += 1
 	else:
 		# Decrease the number of balls left and end the game

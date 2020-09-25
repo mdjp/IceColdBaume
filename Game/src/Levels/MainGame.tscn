@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
 [ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Screens/PlayerStats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Screens/ScoreScreen.tscn" type="PackedScene" id=5]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,7 +15,6 @@ next_scene = ExtResource( 2 )
 [node name="Holes" type="Node" parent="."]
 
 [node name="Targets" type="Node" parent="Holes"]
-editor/display_folded = true
 
 [node name="10" type="Position2D" parent="Holes/Targets"]
 position = Vector2( 258.734, 91.8564 )
@@ -47,6 +47,7 @@ position = Vector2( 428.039, 473.76 )
 position = Vector2( 297.76, 489.87 )
 
 [node name="TypeOne" type="Node" parent="Holes"]
+editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Holes/TypeOne"]
 position = Vector2( 102.998, 406.085 )
@@ -83,3 +84,15 @@ position = Vector2( 298.62, 502 )
 [node name="BallStartPosition" type="Position2D" parent="."]
 position = Vector2( 217.282, 494.287 )
 
+[node name="ScoreScreen" parent="." instance=ExtResource( 5 )]
+
+[connection signal="area_entered" from="Holes/Targets/10/Hole" to="Holes/Targets/10/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/9/Hole" to="Holes/Targets/9/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/8/Hole" to="Holes/Targets/8/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/7/Hole" to="Holes/Targets/7/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/6/Hole" to="Holes/Targets/6/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/5/Hole" to="Holes/Targets/5/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/4/Hole" to="Holes/Targets/4/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/3/Hole" to="Holes/Targets/3/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/2/Hole" to="Holes/Targets/2/Hole" method="_on_ball_entered"]
+[connection signal="area_entered" from="Holes/Targets/1/Hole" to="Holes/Targets/1/Hole" method="_on_ball_entered"]
