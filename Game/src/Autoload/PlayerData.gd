@@ -5,6 +5,7 @@ extends Node
 signal target_updated
 signal reset_beam
 signal add_ball
+signal game_ended
 signal start_game_timer
 signal stop_game_timer
 
@@ -66,7 +67,7 @@ func reset_game():
 	emit_signal("reset_beam") # Once the beam is reset it checks whether a new ball needs to be added
 	if number_of_balls == 0:
 		print("Game ended")
-		emit_signal("stop_game_timer")
+		emit_signal("game_ended")
 
 
 func game_started():
