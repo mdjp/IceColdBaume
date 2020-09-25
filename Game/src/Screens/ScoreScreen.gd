@@ -6,6 +6,7 @@ signal end_game
 func _ready():
 	PlayerData.connect("start_game_timer", self, "start_timer")
 	PlayerData.connect("stop_game_timer", self, "stop_timer")
+	PlayerData.connect("score_updated", self, "score_changed")
 	PlayerData.connect("game_ended", self, "game_over")
 
 
@@ -26,6 +27,11 @@ func start_timer():
 
 func stop_timer():
 	$BonusTimer.stop()
+
+
+func score_changed():
+	$AnimationPlayer.play("score_updated")
+	$AnimationTimer.start()
 
 
 func game_over():

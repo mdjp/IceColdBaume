@@ -1,6 +1,6 @@
 extends Node
 
-#signal score_updated
+signal score_updated
 #signal bonus_updated
 signal target_updated
 signal reset_beam
@@ -32,7 +32,7 @@ func reset(start_hole = 1, ball_count = 3) -> void:
 func set_score(value: int) -> void:
 	if value > -1:
 		score = value
-#		emit_signal("score_updated")
+		emit_signal("score_updated")
 
 
 func set_bonus(value: int) -> void:
