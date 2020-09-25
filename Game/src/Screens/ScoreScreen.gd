@@ -7,9 +7,9 @@ func _ready():
 
 
 func _process(delta):
-	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Balls.text = str(PlayerData.number_of_balls)
-	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3/Bonus.text = str(PlayerData.bonus)
-	$Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5/Score.text = str(PlayerData.score)
+	$Background/MarginContainer/HBoxContainer/right/Container/ballCount/Balls.text = str(PlayerData.number_of_balls)
+	$Background/MarginContainer/HBoxContainer/right/bonusValue/Container/Bonus.text = str(PlayerData.bonus).pad_zeros(4)
+	$Background/MarginContainer/HBoxContainer/right/scoreValue/Container/Score.text = str(PlayerData.score).pad_zeros(5)
 
 
 func _on_timeout():

@@ -1,17 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Screens/ScoreScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/General Art/ScoreScreen.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/Messages.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UserInterface/Score.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/ScoreValue.tscn" type="PackedScene" id=6]
 
 [node name="ScoreScreen" type="Node2D"]
 z_index = 100
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Background" type="TextureRect" parent="."]
 texture = ExtResource( 2 )
@@ -19,90 +17,124 @@ texture = ExtResource( 2 )
 [node name="MarginContainer" type="MarginContainer" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
+margin_left = 10.0
 margin_top = 15.0
-margin_right = -15.0
+margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer"]
-margin_right = 174.0
-margin_bottom = 131.0
+margin_right = 184.0
+margin_bottom = 134.0
+custom_constants/separation = 22
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer"]
-margin_right = 62.0
-margin_bottom = 131.0
+[node name="leftContainer" type="MarginContainer" parent="Background/MarginContainer/HBoxContainer"]
+margin_right = 68.0
+margin_bottom = 134.0
+custom_constants/margin_left = 5
 
-[node name="Label" parent="Background/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 3 )]
-margin_right = 62.0
-margin_bottom = 55.0
-text = "Game
-Over"
+[node name="statuses" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer/leftContainer"]
+margin_left = 5.0
+margin_right = 68.0
+margin_bottom = 134.0
+custom_constants/separation = 30
+
+[node name="Game Status" parent="Background/MarginContainer/HBoxContainer/leftContainer/statuses" instance=ExtResource( 3 )]
+margin_right = 63.0
+margin_bottom = 52.0
+custom_constants/line_spacing = 0
+text = "GAME
+OVER"
 align = 1
 
-[node name="Label" type="Label" parent="Background/MarginContainer/HBoxContainer"]
-margin_left = 66.0
-margin_top = 58.0
-margin_right = 81.0
-margin_bottom = 72.0
-custom_colors/font_color = Color( 0, 0, 0, 0 )
-text = "ttt"
+[node name="RoundLabel" parent="Background/MarginContainer/HBoxContainer/leftContainer/statuses" instance=ExtResource( 3 )]
+margin_top = 82.0
+margin_right = 63.0
+margin_bottom = 134.0
+custom_constants/line_spacing = 0
+text = "SET
+%s"
+align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer"]
-margin_left = 85.0
-margin_right = 115.0
-margin_bottom = 131.0
+[node name="right" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 154.0
+margin_bottom = 134.0
+custom_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 30.0
+[node name="Container" type="MarginContainer" parent="Background/MarginContainer/HBoxContainer/right"]
+margin_right = 64.0
 margin_bottom = 38.0
+custom_constants/margin_left = 0
 
-[node name="Balls" parent="Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
-margin_right = 21.0
+[node name="ballCount" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/right/Container"]
+margin_right = 64.0
+margin_bottom = 38.0
+custom_constants/separation = 18
+
+[node name="Balls" parent="Background/MarginContainer/HBoxContainer/right/Container/ballCount" instance=ExtResource( 4 )]
+margin_right = 22.0
+rect_min_size = Vector2( 22, 0 )
 custom_colors/font_color = Color( 0.996078, 0.996078, 0.996078, 1 )
 text = "0"
 align = 1
 valign = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 30.0
-margin_bottom = 54.0
+[node name="BallsLabel" parent="Background/MarginContainer/HBoxContainer/right/Container/ballCount" instance=ExtResource( 5 )]
+margin_left = 40.0
+margin_top = 7.0
+margin_right = 64.0
+margin_bottom = 31.0
+custom_constants/line_spacing = 0
+text = "Balls
+left"
+align = 1
+valign = 1
 
-[node name="BonusLabel" parent="Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 5 )]
-margin_right = 30.0
+[node name="bonusValue" type="MarginContainer" parent="Background/MarginContainer/HBoxContainer/right"]
+margin_top = 46.0
+margin_right = 64.0
+margin_bottom = 81.0
+custom_constants/margin_left = 2
+
+[node name="Container" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer/right/bonusValue"]
+margin_left = 2.0
+margin_right = 64.0
+margin_bottom = 35.0
+custom_constants/separation = 0
+
+[node name="BonusLabel" parent="Background/MarginContainer/HBoxContainer/right/bonusValue/Container" instance=ExtResource( 5 )]
+margin_right = 62.0
 margin_bottom = 12.0
 rect_pivot_offset = Vector2( 30.6024, -0.356018 )
 text = "Bonus"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 58.0
-margin_right = 30.0
-margin_bottom = 70.0
+[node name="Bonus" parent="Background/MarginContainer/HBoxContainer/right/bonusValue/Container" instance=ExtResource( 6 )]
+margin_top = 12.0
+margin_right = 62.0
+margin_bottom = 35.0
+text = "0000"
 
-[node name="Bonus" parent="Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 5 )]
-margin_right = 18.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 30.6024, -0.356018 )
-text = "000"
+[node name="scoreValue" type="MarginContainer" parent="Background/MarginContainer/HBoxContainer/right"]
+margin_top = 89.0
+margin_right = 64.0
+margin_bottom = 124.0
+custom_constants/margin_left = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 74.0
-margin_right = 30.0
-margin_bottom = 86.0
+[node name="Container" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer/right/scoreValue"]
+margin_left = 2.0
+margin_right = 64.0
+margin_bottom = 35.0
+custom_constants/separation = 0
 
-[node name="ScoreLabel" parent="Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource( 5 )]
-margin_right = 27.0
+[node name="ScoreLabel" parent="Background/MarginContainer/HBoxContainer/right/scoreValue/Container" instance=ExtResource( 5 )]
+margin_right = 62.0
 margin_bottom = 12.0
 text = "Score"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Background/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 90.0
-margin_right = 30.0
-margin_bottom = 102.0
-
-[node name="Score" parent="Background/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5" instance=ExtResource( 5 )]
-margin_right = 30.0
-margin_bottom = 12.0
+[node name="Score" parent="Background/MarginContainer/HBoxContainer/right/scoreValue/Container" instance=ExtResource( 6 )]
+margin_top = 12.0
+margin_right = 62.0
+margin_bottom = 35.0
 text = "00000"
 
 [node name="BonusTimer" type="Timer" parent="."]
