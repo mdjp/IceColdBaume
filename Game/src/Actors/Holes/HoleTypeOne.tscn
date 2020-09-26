@@ -9,6 +9,7 @@ radius = 17.1534
 [node name="Hole" type="Area2D" groups=[
 "Hole",
 ]]
+z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

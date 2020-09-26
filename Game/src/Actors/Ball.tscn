@@ -16,7 +16,7 @@ radius = 10.8398
 [node name="Ball" type="RigidBody2D" groups=[
 "Ball",
 ]]
-z_index = 1
+z_index = 3
 physics_material_override = SubResource( 1 )
 gravity_scale = 20.0
 script = ExtResource( 1 )
