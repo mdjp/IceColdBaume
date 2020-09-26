@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Circle End - Highlight.png-bdb103f477139b40d1c56c9c94363843.stex"
+path="res://.import/Positions - Targets.png-3c5e1dec5f1661c9df2acda5d76b92ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Holes/Circle End - Highlight.png"
-dest_files=[ "res://.import/Circle End - Highlight.png-bdb103f477139b40d1c56c9c94363843.stex" ]
+source_file="res://Assets/Holes/Positions - Targets.png"
+dest_files=[ "res://.import/Positions - Targets.png-3c5e1dec5f1661c9df2acda5d76b92ab.stex" ]
 
 [params]
 

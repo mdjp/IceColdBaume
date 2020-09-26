@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Circle 1 - Largest.png-6933fe7f9305d3b2ead7fcea25d92935.stex"
+path="res://.import/Final - Circle 1 - Largest.png-42928de0a13b57de952708067805e2df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Holes/Circle 1 - Largest.png"
-dest_files=[ "res://.import/Circle 1 - Largest.png-6933fe7f9305d3b2ead7fcea25d92935.stex" ]
+source_file="res://Assets/Holes/Final - Circle 1 - Largest.png"
+dest_files=[ "res://.import/Final - Circle 1 - Largest.png-42928de0a13b57de952708067805e2df.stex" ]
 
 [params]
 

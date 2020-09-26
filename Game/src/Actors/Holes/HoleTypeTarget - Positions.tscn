@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Actors/Holes/HoleTypeTarget - Positions.gd" type="Script" id=1]
+[ext_resource path="res://Assets/General Art/Blank_Background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Holes/Positions - Targets.png" type="Texture" id=3]
+[ext_resource path="res://src/Actors/Holes/HolePositioner.gd" type="Script" id=4]
+[ext_resource path="res://src/Actors/Holes/HoleTypeTarget.tscn" type="PackedScene" id=5]
+
+[node name="HoleTypeTarget" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="HolePositions" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
+[node name="Holes" type="Node" parent="."]
+script = ExtResource( 4 )
+hole_scene = ExtResource( 5 )
+
+[node name="1" type="Position2D" parent="Holes"]
+position = Vector2( 432.5, 728.496 )
+
+[node name="2" type="Position2D" parent="Holes"]
+position = Vector2( 629.475, 707.571 )
+
+[node name="3" type="Position2D" parent="Holes"]
+position = Vector2( 237.547, 653.545 )
+
+[node name="4" type="Position2D" parent="Holes"]
+position = Vector2( 530.502, 599.5 )
+
+[node name="5" type="Position2D" parent="Holes"]
+position = Vector2( 353.47, 508.521 )
+
+[node name="6" type="Position2D" parent="Holes"]
+position = Vector2( 613.528, 416.547 )
+
+[node name="7" type="Position2D" parent="Holes"]
+position = Vector2( 445.478, 370.559 )
+
+[node name="8" type="Position2D" parent="Holes"]
+position = Vector2( 266.493, 322.554 )
+
+[node name="9" type="Position2D" parent="Holes"]
+position = Vector2( 539.477, 253.513 )
+
+[node name="10" type="Position2D" parent="Holes"]
+position = Vector2( 377.558, 213.478 )
+
