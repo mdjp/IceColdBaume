@@ -42,8 +42,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "score_updated"
-length = 0.4
+length = 0.5
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Background/MarginContainer/HBoxContainer/right/scoreValue/Container/Score:custom_colors/font_color")
 tracks/0/interp = 1
@@ -51,7 +52,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 3.03143, 0.420448 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.462745 ), Color( 1, 1, 1, 1 ) ]
@@ -195,8 +196,10 @@ anims/idle = SubResource( 2 )
 anims/score_updated = SubResource( 3 )
 
 [node name="AnimationTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="timeout" from="BonusTimer" to="." method="_on_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_AnimationTimer_timeout"]
