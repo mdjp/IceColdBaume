@@ -1,0 +1,171 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/General Art/Blank_Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Holes/Positions - Hole 2.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/Holes/HolePositioner.gd" type="Script" id=3]
+[ext_resource path="res://src/Actors/Holes/HoleTypeTwo.tscn" type="PackedScene" id=4]
+
+[node name="HoleTypeTwo" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+
+[node name="HolePositions" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="Holes" type="Node" parent="."]
+script = ExtResource( 3 )
+hole_scene = ExtResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="Holes"]
+position = Vector2( 652.623, 779.539 )
+
+[node name="Position2D2" type="Position2D" parent="Holes"]
+position = Vector2( 693.604, 709.482 )
+
+[node name="Position2D3" type="Position2D" parent="Holes"]
+position = Vector2( 650.512, 663.5 )
+
+[node name="Position2D4" type="Position2D" parent="Holes"]
+position = Vector2( 576.49, 678.496 )
+
+[node name="Position2D5" type="Position2D" parent="Holes"]
+position = Vector2( 521.501, 658.52 )
+
+[node name="Position2D6" type="Position2D" parent="Holes"]
+position = Vector2( 511.597, 712.507 )
+
+[node name="Position2D7" type="Position2D" parent="Holes"]
+position = Vector2( 431.533, 679.563 )
+
+[node name="Position2D8" type="Position2D" parent="Holes"]
+position = Vector2( 292.51, 702.56 )
+
+[node name="Position2D9" type="Position2D" parent="Holes"]
+position = Vector2( 211.525, 722.494 )
+
+[node name="Position2D10" type="Position2D" parent="Holes"]
+position = Vector2( 172.456, 672.508 )
+
+[node name="Position2D11" type="Position2D" parent="Holes"]
+position = Vector2( 282.534, 623.523 )
+
+[node name="Position2D12" type="Position2D" parent="Holes"]
+position = Vector2( 377.518, 587.52 )
+
+[node name="Position2D13" type="Position2D" parent="Holes"]
+position = Vector2( 336.5, 559.524 )
+
+[node name="Position2D14" type="Position2D" parent="Holes"]
+position = Vector2( 301.511, 525.441 )
+
+[node name="Position2D15" type="Position2D" parent="Holes"]
+position = Vector2( 202.528, 508.468 )
+
+[node name="Position2D16" type="Position2D" parent="Holes"]
+position = Vector2( 179.565, 468.55 )
+
+[node name="Position2D17" type="Position2D" parent="Holes"]
+position = Vector2( 307.592, 468.43 )
+
+[node name="Position2D18" type="Position2D" parent="Holes"]
+position = Vector2( 352.518, 434.524 )
+
+[node name="Position2D19" type="Position2D" parent="Holes"]
+position = Vector2( 410.522, 556.566 )
+
+[node name="Position2D20" type="Position2D" parent="Holes"]
+position = Vector2( 460.544, 508.557 )
+
+[node name="Position2D21" type="Position2D" parent="Holes"]
+position = Vector2( 494.54, 533.524 )
+
+[node name="Position2D22" type="Position2D" parent="Holes"]
+position = Vector2( 543.49, 537.596 )
+
+[node name="Position2D23" type="Position2D" parent="Holes"]
+position = Vector2( 613.581, 485.501 )
+
+[node name="Position2D24" type="Position2D" parent="Holes"]
+position = Vector2( 679.585, 457.546 )
+
+[node name="Position2D25" type="Position2D" parent="Holes"]
+position = Vector2( 692.495, 418.529 )
+
+[node name="Position2D26" type="Position2D" parent="Holes"]
+position = Vector2( 574.532, 451.464 )
+
+[node name="Position2D27" type="Position2D" parent="Holes"]
+position = Vector2( 445.519, 441.536 )
+
+[node name="Position2D28" type="Position2D" parent="Holes"]
+position = Vector2( 533.541, 416.566 )
+
+[node name="Position2D29" type="Position2D" parent="Holes"]
+position = Vector2( 653.498, 380.565 )
+
+[node name="Position2D30" type="Position2D" parent="Holes"]
+position = Vector2( 613.55, 344.583 )
+
+[node name="Position2D31" type="Position2D" parent="Holes"]
+position = Vector2( 539.448, 313.521 )
+
+[node name="Position2D32" type="Position2D" parent="Holes"]
+position = Vector2( 574.547, 284.547 )
+
+[node name="Position2D33" type="Position2D" parent="Holes"]
+position = Vector2( 606.519, 254.468 )
+
+[node name="Position2D34" type="Position2D" parent="Holes"]
+position = Vector2( 572.57, 225.527 )
+
+[node name="Position2D35" type="Position2D" parent="Holes"]
+position = Vector2( 538.488, 197.408 )
+
+[node name="Position2D36" type="Position2D" parent="Holes"]
+position = Vector2( 505.537, 225.505 )
+
+[node name="Position2D37" type="Position2D" parent="Holes"]
+position = Vector2( 473.537, 255.434 )
+
+[node name="Position2D38" type="Position2D" parent="Holes"]
+position = Vector2( 443.473, 214.52 )
+
+[node name="Position2D39" type="Position2D" parent="Holes"]
+position = Vector2( 446.585, 300.519 )
+
+[node name="Position2D40" type="Position2D" parent="Holes"]
+position = Vector2( 377.441, 274.509 )
+
+[node name="Position2D41" type="Position2D" parent="Holes"]
+position = Vector2( 366.464, 371.515 )
+
+[node name="Position2D42" type="Position2D" parent="Holes"]
+position = Vector2( 329.569, 322.4 )
+
+[node name="Position2D43" type="Position2D" parent="Holes"]
+position = Vector2( 312.431, 364.483 )
+
+[node name="Position2D44" type="Position2D" parent="Holes"]
+position = Vector2( 266.594, 380.594 )
+
+[node name="Position2D45" type="Position2D" parent="Holes"]
+position = Vector2( 221.535, 364.551 )
+
+[node name="Position2D46" type="Position2D" parent="Holes"]
+position = Vector2( 202.521, 323.527 )
+
+[node name="Position2D47" type="Position2D" parent="Holes"]
+position = Vector2( 221.527, 281.569 )
+
+[node name="Position2D48" type="Position2D" parent="Holes"]
+position = Vector2( 267.564, 268.544 )
+
+[node name="Position2D49" type="Position2D" parent="Holes"]
+position = Vector2( 311.506, 215.555 )
+

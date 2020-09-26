@@ -23,8 +23,71 @@ script = ExtResource( 3 )
 hole_scene = ExtResource( 4 )
 
 [node name="Position2D" type="Position2D" parent="Holes"]
-position = Vector2( 343.542, 185.487 )
+position = Vector2( 343.411, 185.568 )
 
 [node name="Position2D2" type="Position2D" parent="Holes"]
-position = Vector2( 410.545, 186.535 )
+position = Vector2( 410.522, 186.47 )
+
+[node name="Position2D3" type="Position2D" parent="Holes"]
+position = Vector2( 410.427, 243.504 )
+
+[node name="Position2D4" type="Position2D" parent="Holes"]
+position = Vector2( 344.465, 244.529 )
+
+[node name="Position2D5" type="Position2D" parent="Holes"]
+position = Vector2( 235.483, 228.532 )
+
+[node name="Position2D6" type="Position2D" parent="Holes"]
+position = Vector2( 161.443, 339.508 )
+
+[node name="Position2D7" type="Position2D" parent="Holes"]
+position = Vector2( 153.565, 427.507 )
+
+[node name="Position2D8" type="Position2D" parent="Holes"]
+position = Vector2( 253.51, 488.456 )
+
+[node name="Position2D9" type="Position2D" parent="Holes"]
+position = Vector2( 406.459, 336.453 )
+
+[node name="Position2D10" type="Position2D" parent="Holes"]
+position = Vector2( 406.561, 406.523 )
+
+[node name="Position2D11" type="Position2D" parent="Holes"]
+position = Vector2( 486.415, 406.439 )
+
+[node name="Position2D12" type="Position2D" parent="Holes"]
+position = Vector2( 485.548, 334.505 )
+
+[node name="Position2D13" type="Position2D" parent="Holes"]
+position = Vector2( 534.499, 370.572 )
+
+[node name="Position2D14" type="Position2D" parent="Holes"]
+position = Vector2( 690.477, 242.434 )
+
+[node name="Position2D15" type="Position2D" parent="Holes"]
+position = Vector2( 715.473, 378.44 )
+
+[node name="Position2D16" type="Position2D" parent="Holes"]
+position = Vector2( 653.46, 533.538 )
+
+[node name="Position2D17" type="Position2D" parent="Holes"]
+position = Vector2( 715.474, 612.525 )
+
+[node name="Position2D18" type="Position2D" parent="Holes"]
+position = Vector2( 715.528, 667.52 )
+
+[node name="Position2D19" type="Position2D" parent="Holes"]
+position = Vector2( 586.489, 598.468 )
+
+[node name="Position2D20" type="Position2D" parent="Holes"]
+position = Vector2( 436.443, 610.504 )
+
+[node name="Position2D21" type="Position2D" parent="Holes"]
+position = Vector2( 360.48, 700.489 )
+
+[node name="Position2D22" type="Position2D" parent="Holes"]
+position = Vector2( 244.527, 567.461 )
+
+[node name="Position2D23" type="Position2D" parent="Holes"]
+position = Vector2( 153.503, 614.523 )
 
