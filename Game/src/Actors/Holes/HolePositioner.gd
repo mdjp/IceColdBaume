@@ -14,4 +14,6 @@ func _get_configuration_warning() -> String:
 func _add_holes():
 	for child in self.get_children():
 		var hole = hole_scene.instance()
+		if hole.is_in_group("Goal"):
+			hole.hole_number = int(child.name)
 		child.add_child(hole)
