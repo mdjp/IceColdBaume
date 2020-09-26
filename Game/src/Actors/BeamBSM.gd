@@ -35,9 +35,9 @@ func _enter_state(new_state, old_state):
 		states.WAITING:
 			pass
 		states.RESETTING:
-			pass
+			PlayerData.emit_signal("stop_game_timer")
 		states.PAUSED:
-			pass
+			PlayerData.emit_signal("stop_game_timer")
 
 
 func _exit_state(old_state, new_state):
@@ -47,5 +47,6 @@ func _exit_state(old_state, new_state):
 		states.RESETTING:
 			if PlayerData.number_of_balls > 0:
 				PlayerData.emit_signal("add_ball")
+				PlayerData.emit_signal("start_game_timer")
 		states.PAUSED:
-			pass
+			PlayerData.emit_signal("start_game_timer")

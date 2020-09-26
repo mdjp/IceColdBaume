@@ -38,3 +38,19 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Goal Hole: "
 
+[node name="Stat03" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 181.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Bonus: "
+
+[node name="Stat04" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 181.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: "
+

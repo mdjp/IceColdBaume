@@ -6,6 +6,9 @@
 [ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=4]
 
 [node name="MainScreen" type="Control"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Background" type="TextureRect" parent="."]
 margin_left = 70.0

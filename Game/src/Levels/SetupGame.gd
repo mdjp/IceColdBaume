@@ -16,7 +16,7 @@ export var next_scene: PackedScene
 func _ready():
 	PlayerData.connect("add_ball", self, "_reset")
 	PlayerData.connect("target_updated", self, "_change_target")
-	PlayerData.connect("end_game", self, "_end_game")
+	$ScoreScreen.connect("end_game", self, "_end_game")
 	
 	_add_target_holes()
 	_set_hole_target_status(PlayerData.target_hole, true)
@@ -26,6 +26,8 @@ func _ready():
 	beam = BEAM.instance()
 	self.add_child(beam)
 	beam.global_position = $BeamStartPosition.global_position
+	
+	PlayerData.game_started()
 
 
 func _reset():
