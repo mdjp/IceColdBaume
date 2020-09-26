@@ -19,9 +19,8 @@ next_scene = ExtResource( 2 )
 [node name="HoleTypeTarget" parent="Holes" instance=ExtResource( 4 )]
 
 [node name="HoleTypeOne" parent="Holes" instance=ExtResource( 5 )]
-position = Vector2( -99.9606, -28.5602 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
+[node name="PlayerStats" parent="." instance=ExtResource( 6 )]
 
 [node name="BeamStartPosition" type="Position2D" parent="."]
 position = Vector2( 423.979, 787.611 )

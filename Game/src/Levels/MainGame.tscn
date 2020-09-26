@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
 [ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Holes/HoleTypeTarget - Positions.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Holes/HoleTypeOne - Positions.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Screens/ScoreScreen.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Boarder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Actors/Holes/HoleTypeTwo - Positions.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Screens/ScoreScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Boarder.tscn" type="PackedScene" id=8]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,21 +21,16 @@ next_scene = ExtResource( 2 )
 
 [node name="HoleTypeOne" parent="Holes" instance=ExtResource( 5 )]
 
-[node name="TypeTwo" type="Node" parent="Holes"]
-editor/display_folded = true
-
-[node name="Position2D" type="Position2D" parent="Holes/TypeTwo"]
-
-[node name="Position2D2" type="Position2D" parent="Holes/TypeTwo"]
+[node name="HoleTypeTwo" parent="Holes" instance=ExtResource( 6 )]
 
 [node name="BeamStartPosition" type="Position2D" parent="."]
-position = Vector2( 427.041, 750 )
+position = Vector2( 427.041, 780 )
 
 [node name="BallStartPosition" type="Position2D" parent="."]
-position = Vector2( 244.65, 700 )
+position = Vector2( 244.65, 750 )
 
-[node name="ScoreScreen" parent="." instance=ExtResource( 6 )]
+[node name="ScoreScreen" parent="." instance=ExtResource( 7 )]
 position = Vector2( 177.042, 821.002 )
 
-[node name="Boarder" parent="." instance=ExtResource( 7 )]
+[node name="Boarder" parent="." instance=ExtResource( 8 )]
 
