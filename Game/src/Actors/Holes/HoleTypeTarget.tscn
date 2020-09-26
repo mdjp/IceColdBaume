@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Actors/Holes/HoleTypeTarget.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Holes/Final - Circle Target.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Holes/Final - Circle Target Darker.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Holes/Final - Active Circle Target.png" type="Texture" id=3]
 [ext_resource path="res://Assets/HoleFont.tres" type="DynamicFont" id=4]
 
@@ -31,12 +31,12 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.20084, 0 )
+position = Vector2( -1.20084, 0 )
 frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.23761, 0 )
+position = Vector2( 0.23761, 0 )
 shape = SubResource( 2 )
 
 [node name="Number" type="Label" parent="."]
@@ -49,5 +49,4 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "?"
 align = 1
 valign = 3
-
 [connection signal="area_entered" from="." to="." method="_on_ball_entered"]
