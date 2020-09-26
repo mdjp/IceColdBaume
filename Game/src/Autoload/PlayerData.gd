@@ -25,11 +25,12 @@ func _ready():
 
 
 func reset(start_hole = 1, ball_count = 3) -> void:
-	target_hole = start_hole
-	number_of_balls = ball_count
-	score = 0
-	bonus = 100 * target_hole
-	set = 1
+	# The setter functions need to be used in order to trigger the signals
+	set_target(start_hole)
+	set_balls(ball_count)
+	score = 0 # Note: we don't want to trigger the animation so the function is not used
+	set_bonus(100 * target_hole)
+	set_round(1)
 
 
 func set_score(value: int) -> void:
@@ -54,16 +55,12 @@ func set_target(value: int) -> void:
 	var small_value = value
 	if small_value > max_holes:
 		small_value = small_value % max_holes
-		
-		set += 1
-		emit_signal("round_updated")
+		set_round(set + 1)
 	
 	if small_value in range(1, max_holes + 1):
 		emit_signal("target_updated", target_hole, small_value) # old_target, new_target
 		target_hole = small_value
-		
-		bonus = 100 * target_hole
-		emit_signal("bonus_updated")
+		set_bonus(100 * target_hole)
 
 
 func set_balls(value: int) -> void:
