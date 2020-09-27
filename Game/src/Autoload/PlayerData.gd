@@ -30,7 +30,7 @@ func reset(start_hole = 1, ball_count = 3) -> void:
 	set_balls(ball_count)
 	score = 0 # Note: we don't want to trigger the animation so the function is not used
 	set_bonus(100 * target_hole)
-	set_round(1)
+	set = 1
 
 
 func set_score(value: int) -> void:
