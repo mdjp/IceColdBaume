@@ -7,11 +7,11 @@ var thrust = Vector2()
 var right_rotation_dir = 0
 var left_rotation_dir = 0
 var beamSizeRatio
-const angle = PI/100
+const angle = PI/45
 
 
 func _ready():
-	beamSizeRatio = _get_beamSizeRatio($Sprite.texture.get_size(), $Sprite.scale, $Sprite/RightSide.position)
+	beamSizeRatio = _get_beamSizeRatio($Sprite.scale, $Sprite/RightSide.position)
 	$ResetStateMachine.reset_position_centre = get_parent().get_node("BeamStartPosition").global_position
 	PlayerData.connect("reset_beam", self, "_reset")
 
@@ -35,11 +35,11 @@ func move_beam():
 		linear_velocity.y = right_rotation_dir * engine_thrust
 		angular_velocity = 0
 	else:
-		var dir = right_rotation_dir - left_rotation_dir
-		if _can_rotate(dir):
-			var temp = - 1 if left_rotation_dir != 0 else 1
-			linear_velocity.y = dir * beamSizeRatio * sin(temp * angle)
-			angular_velocity = dir * spin_thrust * cos(angle)
+		var final_direction = right_rotation_dir - left_rotation_dir
+		if _can_rotate(final_direction):
+			var opp_pivot_dir = - 1 if left_rotation_dir != 0 else 1
+			linear_velocity.y = final_direction * spin_thrust * beamSizeRatio * sin(opp_pivot_dir * angle)
+			angular_velocity = final_direction * spin_thrust * sin(opp_pivot_dir * angle) * opp_pivot_dir
 		else:
 			linear_velocity.y = 0
 			angular_velocity = 0
@@ -100,5 +100,5 @@ func _reset():
 	$BasicStateMachine.current_state = $BasicStateMachine.states.RESETTING
 
 
-func _get_beamSizeRatio(sprite_size, sprite_scale, side_position):
-	return sprite_size.x * sprite_scale.x * (sprite_size.x/(sprite_size.x - 2 * abs(side_position.x)))
+func _get_beamSizeRatio(sprite_scale, side_position):
+	return abs(side_position.x) * sprite_scale.x

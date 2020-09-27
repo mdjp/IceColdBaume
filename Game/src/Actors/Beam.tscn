@@ -16,7 +16,7 @@ __meta__ = {
 "_edit_group_": true
 }
 engine_thrust = 50
-spin_thrust = 1
+spin_thrust = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 build_mode = 1
