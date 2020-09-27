@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Flattened - MetalBar.png-3a90e4a388ebe741211ec0b0b6a3d49c.stex"
+path="res://.import/GameTitle.png-906dc0f0b618210294c3f5856fdd334a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerItems/Flattened - MetalBar.png"
-dest_files=[ "res://.import/Flattened - MetalBar.png-3a90e4a388ebe741211ec0b0b6a3d49c.stex" ]
+source_file="res://Assets/General Art/GameTitle.png"
+dest_files=[ "res://.import/GameTitle.png-906dc0f0b618210294c3f5856fdd334a.stex" ]
 
 [params]
 

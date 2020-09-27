@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EndGameBackground.png-a28684dc2cb2f5cf4f6b076e42abf4bb.stex"
+path="res://.import/Star.png-fbdbc889c0fbf9de4821757950dfba65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EndGameBackground.png"
-dest_files=[ "res://.import/EndGameBackground.png-a28684dc2cb2f5cf4f6b076e42abf4bb.stex" ]
+source_file="res://Assets/General Art/Star.png"
+dest_files=[ "res://.import/Star.png-fbdbc889c0fbf9de4821757950dfba65.stex" ]
 
 [params]
 

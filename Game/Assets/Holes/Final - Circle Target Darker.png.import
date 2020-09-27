@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Flattened - GameBoard.png-15fa9b7d3ed5f7d7863c41bbddfa6cc9.stex"
+path="res://.import/Final - Circle Target Darker.png-025b19c3193afb736771b2d031c71106.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Flattened - GameBoard.png"
-dest_files=[ "res://.import/Flattened - GameBoard.png-15fa9b7d3ed5f7d7863c41bbddfa6cc9.stex" ]
+source_file="res://Assets/Holes/Final - Circle Target Darker.png"
+dest_files=[ "res://.import/Final - Circle Target Darker.png-025b19c3193afb736771b2d031c71106.stex" ]
 
 [params]
 

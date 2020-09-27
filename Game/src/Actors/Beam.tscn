@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Beam.gd" type="Script" id=1]
-[ext_resource path="res://Assets/PlayerItems/Flattened - MetalBar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerItems/MetalBar.png" type="Texture" id=2]
 [ext_resource path="res://src/Actors/BeamBSM.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Debug_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://src/Actors/BeamResetSM.gd" type="Script" id=5]
@@ -16,20 +16,20 @@ __meta__ = {
 "_edit_group_": true
 }
 engine_thrust = 50
-spin_thrust = 1
+spin_thrust = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 build_mode = 1
-polygon = PoolVector2Array( -267.583, 13.7979, -229.385, 13.9454, -229.385, -23.9414, -221.529, -23.9414, -221.529, 14.0448, 222.587, 13.9454, 222.587, -23.9414, 230.642, -23.9414, 230.642, 14.1442, 267.434, 14.1442, 267.434, 23.8894, -267.583, 24.045 )
+polygon = PoolVector2Array( -323.957, -4.737, -302.251, -4.73659, -302.251, -31.489, -295.792, -31.4887, -295.792, -4.737, 295.792, -4.737, 295.792, -31.489, 302.251, -31.489, 302.251, -4.737, 323.957, -4.737, 323.957, 4.82293, -323.936, 4.7267 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="LeftSide" type="Position2D" parent="Sprite"]
-position = Vector2( -226, 19 )
+position = Vector2( -299, 0 )
 
 [node name="RightSide" type="Position2D" parent="Sprite"]
-position = Vector2( 226, 19 )
+position = Vector2( 299, 0 )
 
 [node name="BasicStateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
