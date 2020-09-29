@@ -24,11 +24,10 @@ func _state_logic(delta):
 func _get_transition(delta):
 	if basicState.right_direction == basicState.left_direction and basicState.right_direction != 0:
 		return states.MOVE_VERTICALLY
+	elif parent._can_rotate(basicState.right_direction - basicState.left_direction):
+		return states.ROTATE
 	else:
-		if parent._can_rotate(basicState.right_direction - basicState.left_direction):
-			return states.ROTATE
-		else:
-			return states.STATIONARY
+		return states.STATIONARY
 
 
 func _enter_state(new_state, old_state):
