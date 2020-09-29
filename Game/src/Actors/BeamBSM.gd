@@ -1,5 +1,7 @@
 extends StateMachine
 
+var right_direction = 0
+var left_direction = 0
 
 func _ready() -> void:
 	add_state("WAITING") # Refers to the state where the player can move the beam using inputs
@@ -13,11 +15,16 @@ func _ready() -> void:
 func _state_logic(delta):
 	match current_state:
 		states.WAITING:
-			parent.get_input()
+			var movement = parent.get_user_movement()
+			right_direction = movement[0]
+			left_direction = movement[1]
 		states.RESETTING:
-			parent.get_movement()
+			var movement = parent.get_auto_movement()
+			right_direction = movement[0]
+			left_direction = movement[1]
 		states.PAUSED:
-			pass
+			right_direction = 0
+			left_direction = 0
 
 
 func _get_transition(delta):

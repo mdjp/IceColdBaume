@@ -3,11 +3,8 @@ extends RigidBody2D
 export (int) var engine_thrust
 export (int) var spin_thrust
 
-var thrust = Vector2()
-var right_rotation_dir = 0
-var left_rotation_dir = 0
+
 var beamSizeRatio
-const angle = PI/45
 
 
 func _ready():
@@ -25,56 +22,42 @@ func _integrate_forces(state):
 	if $BasicStateMachine.current_state == $BasicStateMachine.states.PAUSED:
 		return
 	
-	move_beam()
+	linear_velocity.x = $MovementStateMachine.linear_velocity_X
+	linear_velocity.y = $MovementStateMachine.linear_velocity_Y
+	angular_velocity = $MovementStateMachine.angular_velocity
 
 
-func move_beam():
-	linear_velocity.x = 0
+func get_user_movement():
+	return [get_input("right"), get_input("left")]
+
+
+func get_input(string_side: String):
+	var dir = 0
+	if Input.is_action_pressed(string_side + "_side_up"):
+		dir -= 1
+	if Input.is_action_pressed(string_side +"_side_down"):
+		dir += 1
+	return dir
+
+
+func get_auto_movement():
+	var right_rotation_dir = 0
+	var left_rotation_dir = 0
 	
-	if right_rotation_dir == left_rotation_dir:
-		linear_velocity.y = right_rotation_dir * engine_thrust
-		angular_velocity = 0
-	else:
-		var final_direction = right_rotation_dir - left_rotation_dir
-		if _can_rotate(final_direction):
-			var opp_pivot_dir = - 1 if left_rotation_dir != 0 else 1
-			linear_velocity.y = final_direction * spin_thrust * beamSizeRatio * sin(opp_pivot_dir * angle)
-			angular_velocity = final_direction * spin_thrust * sin(opp_pivot_dir * angle) * opp_pivot_dir
-		else:
-			linear_velocity.y = 0
-			angular_velocity = 0
-
-
-func get_input():
-	right_rotation_dir = 0
-	if Input.is_action_pressed("right_side_up"):
-		right_rotation_dir -= 1
-	if Input.is_action_pressed("right_side_down"):
-		right_rotation_dir += 1
-	
-	left_rotation_dir = 0
-	if Input.is_action_pressed("left_side_up"):
-		left_rotation_dir -= 1
-	if Input.is_action_pressed("left_side_down"):
-		left_rotation_dir += 1
-
-
-func get_movement():
 	if $ResetStateMachine.current_state == $ResetStateMachine.states.MOVE_VERTICALLY:
 		var direction = round($ResetStateMachine.reset_position_centre.y - self.global_position.y)
 		if direction != 0:
 			right_rotation_dir = sign(direction)
 			left_rotation_dir = sign(direction)
-		
-#		print("direction:" + str(direction))
 	
-	if $ResetStateMachine.current_state == $ResetStateMachine.states.ROTATE and $ResetStateMachine.continue_rotating():
+	if $ResetStateMachine.current_state == $ResetStateMachine.states.ROTATE:
 		var rotation = round($Sprite/LeftSide.global_position.y - $Sprite/RightSide.global_position.y)
-		
-		right_rotation_dir = 0 if rotation == 0 else sign(rotation)
-		left_rotation_dir = 0
-		
-#		print("rotation:" + str(rotation))
+		if sign(rotation) > 0: # Then we want to rotate the right side
+			right_rotation_dir = sign(rotation)
+		elif sign(rotation) < 0: # Then we want to rotate the left side
+			left_rotation_dir = sign(rotation) * -1
+
+	return [right_rotation_dir, left_rotation_dir]
 
 
 func _can_rotate(direction):

@@ -46,8 +46,9 @@ func display_bonus():
 
 func display_round():
 	$Background/MarginContainer/HBoxContainer/leftContainer/statuses/RoundLabel.text = "SET\n" + str(PlayerData.set)
-	$AnimationPlayer.play("new_round")
-	$AnimationTimer.start()
+	if PlayerData.set > 1:
+		$AnimationPlayer.play("new_round")
+		$AnimationTimer.start()
 
 
 func display_ballcount():
