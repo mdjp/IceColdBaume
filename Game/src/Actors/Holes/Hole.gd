@@ -4,6 +4,7 @@ class_name Hole
 export (bool) var is_target := false
 export (int) var hole_size_number
 export (int) var hole_number
+export (int) var wobble
 
 
 func _ready():
@@ -16,4 +17,4 @@ func _on_ball_entered(area):
 	if not object.is_in_group("Ball"):
 		return
 	# If is_goal
-	object.disappear(is_target)
+	object.disappear_animation(is_target)

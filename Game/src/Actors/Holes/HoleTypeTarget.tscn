@@ -19,34 +19,41 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 9.64958
+radius = 1.00348
 
 [node name="Hole" type="Area2D" groups=[
 "Goal",
 ]]
 z_index = 1
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_horizontal_guides_": [ -0.999399 ],
+"_edit_vertical_guides_": [ 1.00322 ]
+}
+wobble = 1
 
 [node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 2 )
 texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.20084, 0 )
+position = Vector2( -1.20084, 2 )
 frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.23761, 0 )
 shape = SubResource( 2 )
 
 [node name="Number" type="Label" parent="."]
 margin_left = -5.43746
-margin_top = -27.9625
+margin_top = -24.9625
 margin_right = 4.56254
-margin_bottom = -13.9625
+margin_bottom = -10.9625
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "?"
 align = 1
 valign = 3
+
 [connection signal="area_entered" from="." to="." method="_on_ball_entered"]

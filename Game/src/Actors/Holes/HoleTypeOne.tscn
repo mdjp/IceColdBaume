@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Holes/Final - Circle 1 - Largest.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 17.1534
+radius = 7.92532
 
 [node name="Hole" type="Area2D" groups=[
 "Hole",
@@ -12,15 +12,17 @@ radius = 17.1534
 z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_horizontal_guides_": [ -0.0492077 ],
+"_edit_vertical_guides_": [ 7.92414 ]
 }
 hole_size_number = 1
+wobble = 11
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.110184, 1.76293 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="." to="." method="_on_ball_entered"]
