@@ -14,7 +14,7 @@ signal stop_game_timer
 
 var score: = 0 setget set_score
 var bonus: = 100 setget set_bonus
-var set setget set_round
+var set: = 1 setget set_round
 var target_hole setget set_target
 var max_holes: = 10
 var number_of_balls: = 3 setget set_balls
