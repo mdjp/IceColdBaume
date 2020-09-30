@@ -17,3 +17,7 @@ func disappear(achieved_goal : bool) -> void:
 	
 	PlayerData.reset_game()
 	queue_free()
+
+
+func _on_screen_exited():
+	disappear(false)
