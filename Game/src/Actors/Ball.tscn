@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Actors/Ball.gd" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerItems/MetalBall.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/BallBSM.gd" type="Script" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
-bounce = 1.0
 absorbent = true
 
 [sub_resource type="CircleShape2D" id=2]
@@ -19,6 +19,7 @@ radius = 1.00204
 z_index = 3
 physics_material_override = SubResource( 1 )
 gravity_scale = 20.0
+sleeping = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -35,6 +36,13 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoleDetector"]
 shape = SubResource( 3 )
 
+[node name="Tween" type="Tween" parent="HoleDetector"]
+playback_process_mode = 0
+
+[node name="BasicStateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
+[connection signal="tween_completed" from="HoleDetector/Tween" to="." method="_on_Tween_completed"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

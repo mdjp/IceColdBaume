@@ -11,6 +11,7 @@ signal add_ball
 signal game_ended
 signal start_game_timer
 signal stop_game_timer
+signal pause_game
 
 var score: = 0 setget set_score
 var bonus: = 100 setget set_bonus

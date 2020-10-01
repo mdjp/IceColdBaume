@@ -19,7 +19,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 1.00348
+radius = 1.51005
 
 [node name="Hole" type="Area2D" groups=[
 "Goal",
@@ -28,8 +28,8 @@ z_index = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_horizontal_guides_": [ -0.999399 ],
-"_edit_vertical_guides_": [ 1.00322 ]
+"_edit_horizontal_guides_": [ -0.999399, -1.99747 ],
+"_edit_vertical_guides_": [ 1.00322, 2.00085 ]
 }
 wobble = 1
 

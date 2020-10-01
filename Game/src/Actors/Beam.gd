@@ -11,6 +11,7 @@ func _ready():
 	beamSizeRatio = _get_beamSizeRatio($Sprite.scale, $Sprite/RightSide.position)
 	$ResetStateMachine.reset_position_centre = get_parent().get_node("BeamStartPosition").global_position
 	PlayerData.connect("reset_beam", self, "_reset")
+	PlayerData.connect("pause_game", self, "_pause")
 
 
 func _process(delta):
@@ -19,9 +20,6 @@ func _process(delta):
 
 
 func _integrate_forces(state):
-	if $BasicStateMachine.current_state == $BasicStateMachine.states.PAUSED:
-		return
-	
 	linear_velocity.x = $MovementStateMachine.linear_velocity_X
 	linear_velocity.y = $MovementStateMachine.linear_velocity_Y
 	angular_velocity = $MovementStateMachine.angular_velocity
@@ -85,3 +83,7 @@ func _reset():
 
 func _get_beamSizeRatio(sprite_scale, side_position):
 	return abs(side_position.x) * sprite_scale.x
+
+
+func _pause():
+	$BasicStateMachine.current_state = $BasicStateMachine.states.PAUSED

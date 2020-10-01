@@ -17,4 +17,5 @@ func _on_ball_entered(area):
 	if not object.is_in_group("Ball"):
 		return
 	# If is_goal
-	object.disappear_animation(is_target)
+	object.disappear_animation(is_target, self.global_position)
+	PlayerData.emit_signal("pause_game")

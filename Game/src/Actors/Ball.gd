@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var goal_achieved: = false
+var position_to_tween_to
 
 
 func _ready():
@@ -8,17 +9,14 @@ func _ready():
 	pass
 
 
-func disappear_animation(achieved_goal : bool) -> void:
+func disappear_animation(achieved_goal : bool, hole_centre) -> void:
 	goal_achieved = achieved_goal
-	$HoleDetector/DisappearTimer.start()
-	linear_velocity.x = 0
-	linear_velocity.y = 0
-	angular_velocity = 0
-	gravity_scale = 0
+	position_to_tween_to = hole_centre
+	$BasicStateMachine.current_state = $BasicStateMachine.states.ENTERED_HOLE
 
 
-func disappear(achieved_goal : bool) -> void:
-	if achieved_goal:
+func remove_ball() -> void:
+	if goal_achieved:
 		PlayerData.score += PlayerData.bonus
 		PlayerData.target_hole += 1
 	else:
@@ -31,8 +29,10 @@ func disappear(achieved_goal : bool) -> void:
 
 
 func _on_screen_exited():
-	disappear(false)
+	if $BasicStateMachine.current_state != $BasicStateMachine.states.DISAPPEAR:
+		goal_achieved = false
+		$BasicStateMachine.current_state = $BasicStateMachine.states.DISAPPEAR
 
 
-func _on_Disappear_timeout():
-	disappear(goal_achieved)
+func _on_Tween_completed(object, key):
+	$BasicStateMachine.current_state = $BasicStateMachine.states.DISAPPEAR
