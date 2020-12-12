@@ -16,8 +16,6 @@ func _ready():
 	PlayerData.connect("add_ball", self, "_reset")
 	$ScoreScreen.connect("end_game", self, "_end_game")
 	
-	_add_ball()
-	
 	beam = BEAM.instance()
 	self.add_child(beam)
 	beam.global_position = $BeamStartPosition.global_position
@@ -26,7 +24,8 @@ func _ready():
 
 
 func _reset():
-	_add_ball()
+	if !is_instance_valid(ball):
+		_add_ball()
 
 
 func _add_ball():
@@ -36,11 +35,11 @@ func _add_ball():
 
 
 func _process(delta):
-	if ball == null:
+	if !is_instance_valid(ball):
 		return
 	
 	if Input.is_action_just_released("reset_game"):
-		ball.disappear(false)
+		_end_game()
 
 
 func _get_configuration_warning() -> String:
