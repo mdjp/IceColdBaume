@@ -24,7 +24,7 @@ func remove_ball() -> void:
 		PlayerData.number_of_balls -= 1
 		pass
 	
-	PlayerData.reset_game()
+	PlayerData.reset_game_components()
 	queue_free()
 
 
@@ -35,4 +35,15 @@ func _on_screen_exited():
 
 
 func _on_Tween_completed(object, key):
-	$BasicStateMachine.current_state = $BasicStateMachine.states.DISAPPEAR
+	$Tween.interpolate_property(self, "global_position:y", self.global_position.y, self.global_position.y + 4, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT) 
+	$Tween.start()
+	$AnimationPlayer.play("disappear")
+
+
+func _on_second_Tween_completed(object, key):
+	pass
+
+
+func _on_AnimationPlayer_finished(anim_name):
+	if anim_name == "disappear":
+		$BasicStateMachine.current_state = $BasicStateMachine.states.DISAPPEAR

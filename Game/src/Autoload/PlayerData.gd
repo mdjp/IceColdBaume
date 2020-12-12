@@ -32,7 +32,7 @@ func reset(start_hole = 1, ball_count = 3) -> void:
 	score = 0 # Note: we don't want to trigger the animation so the function is not used
 	set_bonus(100 * target_hole)
 	set = 1
-	reset_game()
+	reset_game_components()
 
 
 func set_score(value: int) -> void:
@@ -71,7 +71,7 @@ func set_balls(value: int) -> void:
 		emit_signal("ball_count_updated")
 
 
-func reset_game():
+func reset_game_components():
 	emit_signal("reset_beam") # Once the beam is reset it checks whether a new ball needs to be added
 	if number_of_balls == 0:
 		emit_signal("game_ended")

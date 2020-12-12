@@ -18,8 +18,8 @@ func _state_logic(delta):
 			pass
 		states.ENTERED_HOLE:
 			if not tween.is_active():
-				# These settings also work but are less affective Tween.TRANS_BOUNCE, Tween.EASE_OUT
-				tween.interpolate_property(parent, "global_position:x", parent.global_position.x, parent.position_to_tween_to.x, 1, Tween.TRANS_ELASTIC, Tween.EASE_OUT) 
+				# These settings also work but are less affective Tween.TRANS_ELASTIC, Tween.EASE_OUT
+				tween.interpolate_property(parent, "global_position:x", parent.global_position.x, parent.position_to_tween_to.x, 0.4, Tween.TRANS_BOUNCE, Tween.EASE_OUT) 
 				tween.start()
 		states.DISAPPEAR:
 			pass
