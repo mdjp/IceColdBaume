@@ -10,7 +10,7 @@
 [node name="Beam" type="RigidBody2D"]
 z_index = 4
 mode = 2
-mass = 1000.0
+mass = 65535.0
 gravity_scale = 0.0
 script = ExtResource( 1 )
 __meta__ = {

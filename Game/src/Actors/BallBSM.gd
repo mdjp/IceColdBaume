@@ -17,10 +17,7 @@ func _state_logic(delta):
 		states.IDLE:
 			pass
 		states.ENTERED_HOLE:
-			if not tween.is_active():
-				# These settings also work but are less affective Tween.TRANS_ELASTIC, Tween.EASE_OUT
-				tween.interpolate_property(parent, "global_position:x", parent.global_position.x, parent.position_to_tween_to.x, 0.4, Tween.TRANS_BOUNCE, Tween.EASE_OUT) 
-				tween.start()
+			pass
 		states.DISAPPEAR:
 			pass
 
@@ -42,6 +39,10 @@ func _enter_state(new_state, old_state):
 		states.ENTERED_HOLE:
 			parent.set_mode(3) # This makes the body not apply forces
 			parent.gravity_scale = 0 # Otherwise gravity is still in affect
+			
+			# These settings also work but are less affective Tween.TRANS_ELASTIC, Tween.EASE_OUT   Tween.TRANS_BOUNCE
+			tween.interpolate_property(parent, "global_position:x", parent.global_position.x, parent.position_to_tween_to.x, 0.4, Tween.TRANS_BOUNCE, Tween.EASE_OUT) 
+			tween.start()
 		states.DISAPPEAR:
 			parent.remove_ball()
 

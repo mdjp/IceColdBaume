@@ -17,7 +17,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 7.92414 ]
 }
 hole_size_number = 1
-wobble = 11
+wobble = 6
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -17,5 +17,9 @@ func _on_ball_entered(area):
 	if not object.is_in_group("Ball"):
 		return
 	# If is_goal
-	object.disappear_animation(is_target, self.global_position)
+	object.disappear_animation(is_target, self.global_position + Vector2(_determine_direction(object) * wobble,0))
 	PlayerData.emit_signal("pause_game")
+
+
+func _determine_direction(ball):
+	return sign(ball.linear_velocity.x)
