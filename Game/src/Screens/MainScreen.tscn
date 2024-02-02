@@ -1,43 +1,80 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Assets/montserrat_extrabold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/Screens/StartLabel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Holes/Final - Active Circle Target.png" type="Texture" id=3]
 [ext_resource path="res://src/Screens/MainScreen.gd" type="Script" id=5]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/Blank_Background_new.png-bc6c2ed56ebb3ca3da974d6416369d85.stex"
 
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 6
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -229.0
-margin_top = -138.0
-margin_right = -229.0
-margin_bottom = -138.0
 script = ExtResource( 5 )
 next_scene_path = "res://src/Levels/MainGame.tscn"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+texture = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="target_3" type="Sprite" parent="Background"]
+position = Vector2( 236.5, 654 )
+texture = ExtResource( 3 )
+
+[node name="target_1" type="Sprite" parent="Background"]
+position = Vector2( 432.5, 729 )
+texture = ExtResource( 3 )
+
+[node name="target_2" type="Sprite" parent="Background"]
+position = Vector2( 629.5, 709 )
+texture = ExtResource( 3 )
+
+[node name="target_5" type="Sprite" parent="Background"]
+position = Vector2( 353.5, 511 )
+texture = ExtResource( 3 )
+
+[node name="target_4" type="Sprite" parent="Background"]
+position = Vector2( 529.5, 601 )
+texture = ExtResource( 3 )
+
+[node name="target_8" type="Sprite" parent="Background"]
+position = Vector2( 267.5, 323 )
+texture = ExtResource( 3 )
+
+[node name="target_10" type="Sprite" parent="Background"]
+position = Vector2( 378.5, 215 )
+texture = ExtResource( 3 )
+
+[node name="target_7" type="Sprite" parent="Background"]
+position = Vector2( 446.5, 372 )
+texture = ExtResource( 3 )
+
+[node name="target_6" type="Sprite" parent="Background"]
+position = Vector2( 614.5, 418 )
+texture = ExtResource( 3 )
+
+[node name="target_9" type="Sprite" parent="Background"]
+position = Vector2( 539.5, 255 )
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -205.5
-margin_top = -386.0
-margin_right = 205.5
-margin_bottom = 386.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 862.0
-margin_bottom = 1054.0
-
-[node name="Background" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-texture = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 1054.0
-margin_right = 862.0
-margin_bottom = 1054.0
-size_flags_horizontal = 3
+margin_left = -175.0
+margin_top = -31.5
+margin_right = 175.0
+margin_bottom = 31.5
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Press Red to Start"

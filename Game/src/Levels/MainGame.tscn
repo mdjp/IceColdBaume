@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
-[ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Screens/MainScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Holes/HoleTypeTarget - Positions.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actors/Holes/HoleTypeOne - Positions.tscn" type="PackedScene" id=5]

@@ -57,7 +57,6 @@ func get_input2(string_side: String):
 func get_auto_movement():
 	var right_rotation_dir = 0
 	var left_rotation_dir = 0
-	print("inhere")
 	if $ResetStateMachine.current_state == $ResetStateMachine.states.MOVE_VERTICALLY:
 		var direction = round($ResetStateMachine.reset_position_centre.y - self.global_position.y)
 		if direction != 0:
@@ -82,8 +81,6 @@ func _can_rotate(direction):
 	var right = $Sprite/RightSide.global_position	
 	var x = right.x - left.x
 	var y = right.y - left.y
-	print(abs(x))
-	print(abs(y))
 	if y == 0:
 		return true
 	elif abs(x) <= abs(y):
