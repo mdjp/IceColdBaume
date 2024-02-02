@@ -33,4 +33,3 @@ position = Vector2( 244.65, 750 )
 position = Vector2( 177.042, 821.002 )
 
 [node name="Boarder" parent="." instance=ExtResource( 8 )]
-

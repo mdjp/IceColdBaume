@@ -34,4 +34,3 @@ position = Vector2( 433.96, 467.969 )
 
 [node name="ScoreScreen" parent="." instance=ExtResource( 7 )]
 position = Vector2( 134.822, 883.879 )
-

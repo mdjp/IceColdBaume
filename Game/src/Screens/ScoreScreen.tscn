@@ -135,7 +135,6 @@ text = "SET"
 align = 1
 
 [node name="right" type="VBoxContainer" parent="Background/MarginContainer/HBoxContainer"]
-editor/display_folded = true
 margin_left = 90.0
 margin_right = 154.0
 margin_bottom = 131.0

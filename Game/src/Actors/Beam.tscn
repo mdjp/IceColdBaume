@@ -36,12 +36,13 @@ position = Vector2( 299, 0 )
 script = ExtResource( 3 )
 
 [node name="State" type="Label" parent="."]
+visible = false
 margin_left = -41.1346
 margin_top = 24.8993
 margin_right = 41.8654
 margin_bottom = 38.8993
-custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "?"
 align = 1
 
@@ -50,4 +51,3 @@ script = ExtResource( 5 )
 
 [node name="MovementStateMachine" type="Node" parent="."]
 script = ExtResource( 6 )
-

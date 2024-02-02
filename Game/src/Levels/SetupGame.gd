@@ -8,6 +8,7 @@ const TARGET_HOLE = preload("res://src/Actors/Holes/HoleTypeTarget.tscn")
 
 var beam = null
 var ball = null
+var timer = null
 
 export var next_scene: PackedScene
 
@@ -15,12 +16,12 @@ export var next_scene: PackedScene
 func _ready():
 	PlayerData.connect("add_ball", self, "_reset")
 	$ScoreScreen.connect("end_game", self, "_end_game")
-	
 	beam = BEAM.instance()
 	self.add_child(beam)
 	beam.global_position = $BeamStartPosition.global_position
 	
 	PlayerData.game_started()
+
 
 
 func _reset():

@@ -73,6 +73,7 @@ func continue_vertically():
 
 func continue_rotating():
 	var rotation = round(parent.get_node("Sprite/LeftSide").global_position.y - parent.get_node("Sprite/RightSide").global_position.y)
+
 	if old_rotation == null or sign(old_rotation) == sign(rotation):
 		old_rotation = rotation
 		return rotation != 0
