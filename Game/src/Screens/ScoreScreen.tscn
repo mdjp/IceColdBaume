@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Screens/ScoreScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/General Art/ScoreScreen.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://src/UserInterface/Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UserInterface/ScoreValue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/General Art/Star.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/jingle-gameover.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/jingle-achievement.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/jingle-lose.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/blip.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "game_over"
@@ -121,6 +125,7 @@ custom_constants/separation = 30
 [node name="Game Status" parent="Background/MarginContainer/HBoxContainer/leftContainer/statuses" instance=ExtResource( 3 )]
 margin_right = 63.0
 margin_bottom = 52.0
+custom_colors/font_color = Color( 0.251164, 0, 0, 1 )
 custom_constants/line_spacing = 0
 text = "GAME
 OVER"
@@ -234,10 +239,23 @@ anims/new_round = SubResource( 3 )
 anims/score_updated = SubResource( 4 )
 
 [node name="AnimationTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Missed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Scored" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="EndGameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="ScoreBlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 0.5
 
 [connection signal="timeout" from="BonusTimer" to="." method="_on_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_AnimationTimer_timeout"]

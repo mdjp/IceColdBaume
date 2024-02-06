@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/montserrat_extrabold.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://src/Screens/StartLabel.gd" type="Script" id=2]
+[ext_resource path="res://src/Screens/IntroScreenActions.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Holes/Final - Active Circle Target.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sounds/music.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/Screens/MainScreen.gd" type="Script" id=5]
 
 [sub_resource type="StreamTexture" id=1]
@@ -26,22 +27,27 @@ texture = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="target_3" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 236.5, 654 )
 texture = ExtResource( 3 )
 
 [node name="target_1" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 432.5, 729 )
 texture = ExtResource( 3 )
 
 [node name="target_2" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 629.5, 709 )
 texture = ExtResource( 3 )
 
 [node name="target_5" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 353.5, 511 )
 texture = ExtResource( 3 )
 
 [node name="target_4" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 529.5, 601 )
 texture = ExtResource( 3 )
 
@@ -50,18 +56,22 @@ position = Vector2( 267.5, 323 )
 texture = ExtResource( 3 )
 
 [node name="target_10" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 378.5, 215 )
 texture = ExtResource( 3 )
 
 [node name="target_7" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 446.5, 372 )
 texture = ExtResource( 3 )
 
 [node name="target_6" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 614.5, 418 )
 texture = ExtResource( 3 )
 
 [node name="target_9" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 539.5, 255 )
 texture = ExtResource( 3 )
 
@@ -78,3 +88,7 @@ custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Press Red to Start"
+
+[node name="GameMusicIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true

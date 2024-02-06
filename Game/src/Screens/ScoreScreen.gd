@@ -1,7 +1,7 @@
 extends Node2D
 
 signal end_game
-
+var scorechange = 0
 
 func _ready():
 	PlayerData.connect("start_game_timer", self, "start_timer")
@@ -17,6 +17,7 @@ func _ready():
 	display_bonus()
 	display_round()
 	display_ballcount()
+	
 
 
 func _process(delta):
@@ -58,6 +59,7 @@ func display_ballcount():
 func game_over():
 	stop_timer()
 	$AnimationPlayer.play("game_over")
+	$EndGameSound.play()
 	$AnimationTimer.start()
 
 
@@ -69,11 +71,19 @@ func _on_AnimationTimer_timeout():
 
 
 func animate_value(start, end):
+	
+	
 	$Tween.interpolate_method(self, "set_score_text", start, end, 2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 	$AnimationPlayer.play("score_updated")
 
 
 func set_score_text(value):
+	
 	var display_number = stepify(value, 10)
+	if(display_number != scorechange):
+		scorechange = display_number
+		$ScoreBlip.play()
+	else:
+		scorechange = display_number
 	$Background/MarginContainer/HBoxContainer/right/scoreValue/Container/Score.text = str(display_number).pad_zeros(5)

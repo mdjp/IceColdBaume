@@ -17,9 +17,13 @@ func disappear_animation(achieved_goal : bool, hole_centre) -> void:
 
 func remove_ball() -> void:
 	if goal_achieved:
+		var playsound = get_parent().get_node("ScoreScreen/Scored")
+		playsound.play()
 		PlayerData.score += PlayerData.bonus
 		PlayerData.target_hole += 1
 	else:
+		var playsound = get_parent().get_node("ScoreScreen/Missed")
+		playsound.play()
 		# Decrease the number of balls left and end the game
 		PlayerData.number_of_balls -= 1
 		pass

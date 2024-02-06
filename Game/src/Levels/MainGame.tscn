@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Levels/SetupGame.gd" type="Script" id=1]
 [ext_resource path="res://src/Screens/MainScreen.tscn" type="PackedScene" id=2]
@@ -8,6 +8,13 @@
 [ext_resource path="res://src/Actors/Holes/HoleTypeTwo - Positions.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Screens/ScoreScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Boarder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/General Art/orph.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sounds/jingle-gamestart.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/music.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/jingle-gameover.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sounds/balldrop.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sounds/ballroll.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/motorleft.wav" type="AudioStream" id=15]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,4 +39,51 @@ position = Vector2( 244.65, 750 )
 [node name="ScoreScreen" parent="." instance=ExtResource( 7 )]
 position = Vector2( 177.042, 821.002 )
 
-[node name="Boarder" parent="." instance=ExtResource( 8 )]
+[node name="Border" parent="." instance=ExtResource( 8 )]
+
+[node name="TextureRect2" type="TextureRect" parent="Border"]
+visible = false
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 280.0
+margin_top = 434.0
+margin_right = 580.0
+margin_bottom = 602.0
+texture = ExtResource( 9 )
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -3.092
+
+[node name="StartGameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -2.218
+autoplay = true
+
+[node name="EndGameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="BallRoll" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -80.0
+autoplay = true
+
+[node name="BallDrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 13.108
+bus = "Delay"
+
+[node name="MotorRight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -80.0
+autoplay = true
+bus = "Right Motor"
+
+[node name="MotorLeft" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -80.0
+autoplay = true
+bus = "Left Motor"
+
+[connection signal="finished" from="StartGameSound" to="." method="_on_StartGameSound_finished"]
+[connection signal="finished" from="EndGameSound" to="." method="_on_StartGameSound_finished"]
