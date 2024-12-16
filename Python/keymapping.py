@@ -27,7 +27,7 @@ def threaded_function():
     while True:
         with open("/tmp/lightswitch.dat") as f:
             s = f.read()
-        if s == '1':
+        if s == '1\n':
             GPIO.output(21,GPIO.HIGH)
             time.sleep(1)
             GPIO.output(21,GPIO.LOW)
