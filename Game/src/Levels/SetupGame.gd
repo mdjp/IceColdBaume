@@ -16,6 +16,13 @@ export var next_scene: PackedScene
 
 
 func _ready():
+	var file = File.new()
+	if file.open("/tmp/icb.dat", File.WRITE) != 0:
+		print("Error opening file")
+		return
+	# Save the dictionary as JSON (or whatever you want, JSON is convenient here because it's built-in)
+	file.store_line("0")
+	file.close()
 	PlayerData.connect("add_ball", self, "_reset")
 	$ScoreScreen.connect("end_game", self, "_end_game")
 	beam = BEAM.instance()

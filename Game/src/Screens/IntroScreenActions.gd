@@ -16,6 +16,14 @@ var timecounthole = 0;
 var timecounttext = 0;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var file = File.new()
+	if file.open("/tmp/icb.dat", File.WRITE) != 0:
+		print("Error opening file")
+		return
+	# Save the dictionary as JSON (or whatever you want, JSON is convenient here because it's built-in)
+	file.store_line("1")
+	file.close()
+
 	image1 = $target_1
 	starttext = $RichTextLabel
 	_twinkle()
