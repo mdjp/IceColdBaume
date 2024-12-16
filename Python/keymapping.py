@@ -38,7 +38,7 @@ def threaded_function():
 
 
 if __name__ == "__main__":
-    thread = Thread(target = threaded_function, args = (10, ))
+    thread = Thread(target = threaded_function, args = ( ))
     thread.start()
 
 while True:
