@@ -42,7 +42,6 @@ position = Vector2( 629.5, 709 )
 texture = ExtResource( 3 )
 
 [node name="target_5" type="Sprite" parent="Background"]
-visible = false
 position = Vector2( 353.5, 511 )
 texture = ExtResource( 3 )
 
@@ -52,6 +51,7 @@ position = Vector2( 529.5, 601 )
 texture = ExtResource( 3 )
 
 [node name="target_8" type="Sprite" parent="Background"]
+visible = false
 position = Vector2( 267.5, 323 )
 texture = ExtResource( 3 )
 
