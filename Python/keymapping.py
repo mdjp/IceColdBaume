@@ -4,9 +4,14 @@ from pynput.keyboard import Key, Controller
 from threading import Thread
 from time import sleep
 
-keyboard = Controller()
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(21,GPIO.OUT)
+
+keyboard = Controller()
+run = True;
+
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -18,19 +23,23 @@ GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 
-def threaded_function(arg):
-    for i in range(arg):
-        print("running")
-        sleep(1)
+def threaded_function():
+    while True:
+        with open("/tmp/lightswitch.dat") as f:
+            s = f.read()
+        if s == '1':
+            GPIO.output(21,GPIO.HIGH)
+            time.sleep(1)
+            GPIO.output(21,GPIO.LOW)
+            time.sleep(1)
+        else:
+            GPIO.output(21,GPIO.LOW)
+            time.sleep(1)
 
 
 if __name__ == "__main__":
     thread = Thread(target = threaded_function, args = (10, ))
     thread.start()
-    thread.join()
-    print("thread finished...exiting")
-
-
 
 while True:
     left_up_state = GPIO.input(22)

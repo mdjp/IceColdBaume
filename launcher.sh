@@ -1,8 +1,6 @@
 #!/bin/bash
 sleep 5
-cd /
-cd home/icb/ICB/virtkeys
+cd /home/icb/IceColdBaume/Python/virtkeys
 sudo python3 keymapping.py &
-cd ..
-./ICB.x86_64 &
-cd /
+cd /home/icb/IceColdBaume/Game
+./ICB.x86 &
