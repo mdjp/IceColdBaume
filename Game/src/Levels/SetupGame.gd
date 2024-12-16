@@ -17,7 +17,7 @@ export var next_scene: PackedScene
 
 func _ready():
 	var file = File.new()
-	if file.open("/tmp/icb.dat", File.WRITE) != 0:
+	if file.open("/tmp/lightswitch.dat", File.WRITE) != 0:
 		print("Error opening file")
 		return
 	# Save the dictionary as JSON (or whatever you want, JSON is convenient here because it's built-in)
